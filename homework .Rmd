@@ -59,11 +59,6 @@ who5 %>%
 
 3.convert table 4 to table 6
 ```{r}
-install.packages("foreign") 
-install.packages("stringr")
-install.packages("plyr")
-install.packages("reshape2")
-install.packages("CRAN")
 library(foreign)
 library(stringr)
 library(plyr)
@@ -106,8 +101,6 @@ tidy.clean<-xtable(counts[1:10, ], file = "pew-clean.tex")
 ```
 4. convert table 7 to table 8
 ```{r}
-install.packages("magrittr")
-install.packages("tidyr")
 options(stringsAsFactors = FALSE)
 library(lubridate)
 library(reshape2)
@@ -117,7 +110,7 @@ library(xtable)
 library(magrittr)
 library(tidyr)
 
-bb <-read.csv("billboard.csv")
+bb <-read_csv("billboard.csv")
 bb.1 <- bb %>% gather(key="week", value ="rank", -year, -artist.inverted, -track, -time, -genre, -date.entered, -date.peaked)
 bb.2 <- bb.1 %>% select(year, artist=artist.inverted, time, track, date=date.entered, week, rank)
 bb.3 <- bb.2 %>% arrange(track)
